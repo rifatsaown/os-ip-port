@@ -10,6 +10,8 @@ const server = http.createServer((req, res) => {
   res.end('<h1>Hello, World!</h1>'); // Simple response
 });
 
+
+
 // Start server
 server.listen(PORT, () => {
   console.log(`Server is running on:`); // Log server is running
