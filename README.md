@@ -7,7 +7,6 @@ bun install
 ```
 
 To run:
-
 ```bash
 bun run server.ts
 ```
