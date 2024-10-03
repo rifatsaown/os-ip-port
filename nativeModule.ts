@@ -20,3 +20,8 @@ const shutdown = () => {
         throw new Error('Unsupported operating system');
     }
 }
+
+export {
+    restart,
+    shutdown
+}
