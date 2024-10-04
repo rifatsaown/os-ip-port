@@ -1,5 +1,5 @@
 import os from 'os';
-import { exec , spawn} from 'child_process';
+import { exec } from 'child_process';
 
 const restart = () => {
     if (os.platform() === 'win32') {
@@ -21,7 +21,19 @@ const shutdown = () => {
     }
 }
 
+const getIPAddress = () => {
+    const interfaces = os.networkInterfaces();
+    for (const interfaceName of Object.keys(interfaces)) {
+        const iface = interfaces[interfaceName]?.find(iface => iface.family === 'IPv4');
+        if (iface) {
+            return iface.address;
+        }
+    }
+}
+
+
 export {
     restart,
-    shutdown
+    shutdown,
+    getIPAddress,
 }
