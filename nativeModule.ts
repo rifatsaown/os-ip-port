@@ -31,9 +31,16 @@ const getIPAddress = () => {
     }
 }
 
+const getCPUUsage = () => {
+    const cpus = os.cpus();
+    const total = cpus.reduce((acc, cpu) => acc + cpu.times.user + cpu.times.nice + cpu.times.sys + cpu.times.irq + cpu.times.idle, 0);
+    const usage = cpus.reduce((acc, cpu) => acc + cpu.times.user + cpu.times.nice + cpu.times.sys + cpu.times.irq + cpu.times.idle, 0);
+    return usage / total;
+}
 
 export {
     restart,
     shutdown,
-    getIPAddress,
+    getIPAddress, 
+    getCPUUsage
 }
