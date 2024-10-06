@@ -38,9 +38,18 @@ const getCPUUsage = () => {
     return usage / total;
 }
 
+const getMemoryUsage = () => {
+    const total = os.totalmem();
+    const free = os.freemem();
+    const used = total - free;
+    return used / total;
+}
+
+
 export {
     restart,
     shutdown,
     getIPAddress, 
-    getCPUUsage
+    getCPUUsage,
+    getMemoryUsage
 }
